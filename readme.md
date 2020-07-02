@@ -1,5 +1,5 @@
 <h1 align="center">                                                              
-    <img src="https://i.imgur.com/CO9KojZ.png" width="280">                            
+    <img src="https://i.imgur.com/IIpE5ei.png" width="280">                            
 </h1>
 
 # Slick, elegant, fast, and minimal ZSH prompt in Nim.
