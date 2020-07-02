@@ -1,8 +1,10 @@
-# Sleek and minimal ZSH prompt in Nim.
+<h1 align="center">                                                              
+    <img src="https://i.imgur.com/CO9KojZ.png" width="280">                            
+</h1>
 
-[![Build Status](https://travis-ci.org/icyphox/nzsh.svg?branch=master)](https://travis-ci.org/icyphox/nzsh)
+# Slick, elegant, fast, and minimal ZSH prompt in Nim.
 
-![scrot](https://x.icyphox.sh/SltdI.png)
+
 
 ### Why?
 I’ve always wanted to minimize my reliance on frameworks like [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh), so I figured, why not write my own ZSH prompt in my new favourite language? Turned out to be a really fun exercise.
