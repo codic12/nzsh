@@ -1,10 +1,6 @@
-<h1 align="center">                                                              
-    <img src="https://x.icyphox.sh/5DyAD.png" width="280">                            
-</h1>
+# Sleek and minimal ZSH prompt in Nim.
 
-> A nice and icy ZSH prompt in Nim
-
-[![Build Status](https://travis-ci.org/icyphox/nicy.svg?branch=master)](https://travis-ci.org/icyphox/nicy)
+[![Build Status](https://travis-ci.org/icyphox/nzsh.svg?branch=master)](https://travis-ci.org/icyphox/nzsh)
 
 ![scrot](https://x.icyphox.sh/SltdI.png)
 
@@ -23,28 +19,28 @@ I’ve always wanted to minimize my reliance on frameworks like [oh-my-zsh](http
 altogether. It may cause conflicts.
 
 ```console
-$ nimble install nicy
+$ nimble install nzsh
 ```
 
 Don’t know what that is? New to Nim? Check out the Nim [docs](https://nim-lang.org/documentation.html). `nimble` is packaged with Nim by default.  
 
 ## Quick start
-Add this to your `~/.zshrc`. If you installed via `nimble`, set `PROMPT` to `$(~/.nimble/bin/nicy)`.
+Add this to your `~/.zshrc`. If you installed via `nimble`, set `PROMPT` to `$(~/.nimble/bin/nzsh)`.
 
 ```zsh
 autoload -Uz add-zsh-hook
-_nicy_prompt() {
-	PROMPT=$("/path/to/nicy")
+_nzsh_prompt() {
+	PROMPT=$("/path/to/nzsh")
 }
-add-zsh-hook precmd _nicy_prompt
+add-zsh-hook precmd _nzsh_prompt
 ```
 Make sure you disable all other themes.
 
 ## Configuration
-If you want to configure `nicy` as it is, you’ll have to edit the `src/nicy.nim` file and recompile. Messy, I know.
+If you want to configure `nzsh` as it is, you’ll have to edit the `src/nzsh.nim` file and recompile. Messy, I know.
 
 ### Build your own prompt
-Alternatively, you can just as easily write your own prompt in Nim using `nicy`’s built-in API. Refer to the [Examples](#Examples) section for some insight.
+Alternatively, you can just as easily write your own prompt in Nim using `nzsh`’s built-in API. Refer to the [Examples](#Examples) section for some insight.
 
 Once you’re done, compile it and add a similar function to your `.zshrc` as above, replacing `PROMPT` with the path to your own binary.
 
@@ -53,7 +49,7 @@ Once you’re done, compile it and add a similar function to your `.zshrc` as ab
 ```nim
 # ‘user@host $’ prompt
 
-import nicy, strformat
+import nzsh, strformat
 
 let
   user = color(user(), "green")
@@ -67,7 +63,7 @@ echo fmt"{user}{at}{host} {prompt}"
 ```nim
 # fish’s default prompt '~>'
 
-import nicy, strformat
+import nzsh, strformat
 
 let
   prompt = color("> ", "green")
@@ -79,7 +75,7 @@ echo fmt"{tilde}{prompt}"
 ```nim
 # pure by @sindresorhus (kinda)
 
-import nicy, strformat
+import nzsh, strformat
 
 let
   prompt = color("❯ ", "magenta")
@@ -93,7 +89,7 @@ echo fmt"{tilde}{git}{nl}{prompt}"
 ```nim
 # switching by return code
 
-import nicy, strformat
+import nzsh, strformat
 
 let
   prompt = returnCondition(ok = "👍", ng = "👎") & " "
