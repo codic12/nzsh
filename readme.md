@@ -4,30 +4,24 @@
 
 # Slick, elegant, fast, and minimal ZSH prompt in Nim.
 
-
-
-### Why?
-I’ve always wanted to minimize my reliance on frameworks like [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh), so I figured, why not write my own ZSH prompt in my new favourite language? Turned out to be a really fun exercise.
-
-### Highlights
+### Features
 - Written in Nim 👑
-- Fast (in theory, since Nim compiles to C)
-- Pretty defaults.
-- Plugin-like system for prompt customization, in case you didn’t like the pretty defaults.
+- Fast, since Nim compiles to C
+- Sane yet pretty defaults.
+- An API for creating your own prompts, with a ton of features!
 - Fun, I guess.
 
 ## Installation
-**Note**: It’s probably a good idea to uninstall `oh-my-zsh`, or any other plugin framework you’re using
-altogether. It may cause conflicts.
+**Note**: Frameworks like Oh My Zsh may cause conflicts, *especially if you are using a theme with one of them*.
 
 ```console
 $ nimble install nzsh
 ```
 
-Don’t know what that is? New to Nim? Check out the Nim [docs](https://nim-lang.org/documentation.html). `nimble` is packaged with Nim by default.  
+Don’t know what that is? New to Nim? Check out the Nim [docs](https://nim-lang.org/documentation.html). Just [grab a copy](https://nim-lang.org/install.html) of Nim and Nimble and just run it! Or grab a binary from the releases page.
 
 ## Quick start
-Add this to your `~/.zshrc`. If you installed via `nimble`, set `PROMPT` to `$(~/.nimble/bin/nzsh)`.
+Add this to your `~/.zshrc`. If you installed via `nimble`, set `PROMPT` to `$("~/.nimble/bin/nzsh")`. If you grabbed a binarym, point it to that pat.
 
 ```zsh
 autoload -Uz add-zsh-hook
@@ -36,73 +30,16 @@ _nzsh_prompt() {
 }
 add-zsh-hook precmd _nzsh_prompt
 ```
-Make sure you disable all other themes.
+Make sure to disable all other themes.
 
 ## Configuration
 If you want to configure `nzsh` as it is, you’ll have to edit the `src/nzsh.nim` file and recompile. Messy, I know.
 
 ### Build your own prompt
-Alternatively, you can just as easily write your own prompt in Nim using `nzsh`’s built-in API. Refer to the [Examples](#Examples) section for some insight.
+Alternatively, you can just as easily write your own prompt in Nim using `nzsh`’s built-in API. Check out the examples/ folder for some examples.
 
 Once you’re done, compile it and add a similar function to your `.zshrc` as above, replacing `PROMPT` with the path to your own binary.
 
-### Examples
-
-```nim
-# ‘user@host $’ prompt
-
-import nzsh, strformat
-
-let
-  user = color(user(), "green")
-  host = color(host(), "red")
-  prompt = color("$ ", "cyan")
-  at = color("@", "yellow")
-
-echo fmt"{user}{at}{host} {prompt}"
-```
-
-```nim
-# fish’s default prompt '~>'
-
-import nzsh, strformat
-
-let
-  prompt = color("> ", "green")
-  tilde = tilde(getCwd())
-
-echo fmt"{tilde}{prompt}"
-```
-
-```nim
-# pure by @sindresorhus (kinda)
-
-import nzsh, strformat
-
-let
-  prompt = color("❯ ", "magenta")
-  tilde = color(tilde(getCwd()), "cyan")
-  git = color(gitBranch() & gitStatus("*", ""), "red")
-  nl = "\n"
-
-echo fmt"{tilde}{git}{nl}{prompt}"
-```
-
-```nim
-# switching by return code
-
-import nzsh, strformat
-
-let
-  prompt = returnCondition(ok = "👍", ng = "👎") & " "
-  tilde = color(tilde(getCwd()), "cyan")
-  git = color(gitBranch() & gitStatus("*", ""), "red")
-  nl = "\n"
-
-echo fmt"{tilde}{git}{nl}{prompt}"
-# ~ master
-# 👍 
-```
 
 ### API
 
