@@ -113,4 +113,4 @@ Fast, pure C alternative to `echo`. Uses `cstring`.
 Bad code? New feature in mind? Open an issue. Better still, learn [Nim](https://nim-lang.org/documentation.html) and shoot a PR :sparkles:
 
 ## License
-MIT © [Anirudh Oppiliappan](https://icyphox.sh)
+MIT © [Anirudh Oppiliappan](https://icyphox.sh), [Codic](https://codic12.github.io)
