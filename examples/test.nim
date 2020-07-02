@@ -1,5 +1,5 @@
 import 
-    nicy,
+    nzsh,
     strformat
 
 let

@@ -1,6 +1,6 @@
 # pure by @sindresorhus (kinda)
 
-import nicy, strformat
+import nzsh, strformat
 
 let
   prompt = color("❯ ", "magenta")

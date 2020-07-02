@@ -1,6 +1,6 @@
 # ‘user@host $’ prompt
 
-import nicy, strformat
+import nzsh, strformat
 
 let
   user = color(user(), "green")

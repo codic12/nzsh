@@ -1,6 +1,6 @@
 # fish’s default prompt '~>'
 
-import nicy, strformat
+import nzsh, strformat
 
 let
   prompt = color("> ", "green")
